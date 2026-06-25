@@ -1,0 +1,117 @@
+@baseUrl = http://localhost:5000
+
+### Health Check
+GET {{baseUrl}}/health
+
+###
+
+### Valid Prediction Request
+POST {{baseUrl}}/api/predict
+Content-Type: application/json
+
+{
+  "age": 25,
+  "gender": "M",
+  "heightCm": 175,
+  "weightKg": 70,
+  "activityType": "HIIT",
+  "durationMinutes": 30,
+  "intensity": "Medium",
+  "avgHeartRate": 150,
+  "restingHeartRate": 65,
+  "fitnessLevel": 5.85
+}
+
+###
+
+### Running Workout
+POST {{baseUrl}}/api/predict
+Content-Type: application/json
+
+{
+  "age": 30,
+  "gender": "F",
+  "heightCm": 165,
+  "weightKg": 60,
+  "activityType": "Running",
+  "durationMinutes": 45,
+  "intensity": "High",
+  "avgHeartRate": 165,
+  "restingHeartRate": 58,
+  "fitnessLevel": 7.2
+}
+
+###
+
+### Walking Workout
+POST {{baseUrl}}/api/predict
+Content-Type: application/json
+
+{
+  "age": 42,
+  "gender": "M",
+  "heightCm": 180,
+  "weightKg": 82,
+  "activityType": "Walking",
+  "durationMinutes": 60,
+  "intensity": "Low",
+  "avgHeartRate": 95,
+  "restingHeartRate": 68,
+  "fitnessLevel": 4.1
+}
+
+###
+
+### Invalid Gender
+POST {{baseUrl}}/api/predict
+Content-Type: application/json
+
+{
+  "age": 25,
+  "gender": "Male",
+  "heightCm": 175,
+  "weightKg": 70,
+  "activityType": "HIIT",
+  "durationMinutes": 30,
+  "intensity": "Medium",
+  "avgHeartRate": 150,
+  "restingHeartRate": 65,
+  "fitnessLevel": 5.85
+}
+
+###
+
+### Missing Required Field
+POST {{baseUrl}}/api/predict
+Content-Type: application/json
+
+{
+  "age": 25,
+  "gender": "M",
+  "weightKg": 70,
+  "activityType": "HIIT",
+  "durationMinutes": 30,
+  "intensity": "Medium",
+  "avgHeartRate": 150,
+  "restingHeartRate": 65,
+  "fitnessLevel": 5.85
+}
+
+###
+
+### Invalid Age
+POST {{baseUrl}}/api/predict
+Content-Type: application/json
+
+{
+  "age": -5,
+  "gender": "M",
+  "heightCm": 175,
+  "weightKg": 70,
+  "activityType": "HIIT",
+  "durationMinutes": 30,
+  "intensity": "Medium",
+  "avgHeartRate": 150,
+  "restingHeartRate": 65,
+  "fitnessLevel": 5.85
+}

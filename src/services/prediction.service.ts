@@ -1,7 +1,7 @@
 
 import * as ort from "onnxruntime-node";
-import { PredictionInput } from "../schemas/schema.js";
-import { ACTIVITY_MAP, GENDER_MAP, INTENSITY_MAP } from "../schemas/model-map.js";
+import { PredictionInput } from "../schema.js";
+import { ACTIVITY_MAP, GENDER_MAP, INTENSITY_MAP } from "../model.js";
 
 let session: ort.InferenceSession | null = null;
 

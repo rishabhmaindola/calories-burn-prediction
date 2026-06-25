@@ -13,7 +13,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
 
-    "types": ["node","jest","express"]
+    "types": ["node","express"]
   },
-  "include": ["src/**/*", "schema","/tests/**/*"]
+  "include": ["src/**/*", "schema"]
 }

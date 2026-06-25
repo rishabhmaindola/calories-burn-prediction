@@ -1,13 +1,9 @@
 import path from "path";
-
 import { Request, Response } from "express";
-
 import app from "./app.js";
-import { predictionSchema } from "./schemas/schema.js";
-import {
-    initializePredictionService,
-    predict,
-} from "./services/prediction.service.js";
+import { predictionSchema } from "./schema.js";
+import { initializePredictionService, predict } from "./services/prediction.service.js";
+
 
 app.get("/health", (_, res) => {
     res.json({ status: "ok" });
