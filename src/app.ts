@@ -1,5 +1,6 @@
 import express from 'express';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
+import cors from "cors";
 import { dirname, join } from 'path';
 import { fileURLToPath } from "url";
 import { globalRateLimiter } from './lib/ratelimiter.js';
@@ -10,6 +11,15 @@ const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+app.use(
+    cors({
+        origin: process.env.CLIENT_URL || "http://localhost:5173",
+        credentials: true,
+        methods: ["GET", "POST"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+    })
+);
 
 app.use(globalRateLimiter)
 app.use(express.json())

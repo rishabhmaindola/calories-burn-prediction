@@ -14,7 +14,6 @@ app.post(
     async (req: Request, res: Response) => {
         try {
             const result = predictionSchema.safeParse(req.body);
-
             if (!result.success) {
                 return res.status(400).json({
                     success: false,

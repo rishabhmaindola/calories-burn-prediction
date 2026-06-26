@@ -10,7 +10,7 @@ export const predictionSchema = z.object({
     durationMinutes: z.number().int().positive().max(1440),
     intensity: z.enum(INTENSITIES),
     avgHeartRate: z.number().positive().min(30).max(250),
-    restingHeartRate: z.number().positive().min(30).max(120),
+    // restingHeartRate: z.number().positive().min(30).max(120),
     fitnessLevel: z.number().min(0).max(1),
 });
 
