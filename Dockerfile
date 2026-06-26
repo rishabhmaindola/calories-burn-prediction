@@ -3,22 +3,19 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Root dependencies
-COPY package*.json ./
-RUN npm ci
+# Install backend dependencies
+COPY package.json ./
+RUN npm install
 
-# Client dependencies
-COPY client/package*.json ./client/
-RUN cd client && npm ci
+# Install frontend dependencies
+COPY client/package.json ./client/
+RUN cd client && npm install
 
-# Copy source
+# Copy project
 COPY . .
 
-# Builds:
-# 1. client/dist
-# 2. dist/
+# Build Vite + Server
 RUN npm run build
-
 
 # ---------- Production Stage ----------
 FROM node:20-alpine
@@ -27,11 +24,11 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Install only production dependencies
-COPY package*.json ./
-RUN npm ci --omit=dev
+# Install backend production dependencies
+COPY package.json ./
+RUN npm install --omit=dev
 
-# Copy compiled application
+# Copy built application
 COPY --from=builder /app .
 
 EXPOSE 5000
