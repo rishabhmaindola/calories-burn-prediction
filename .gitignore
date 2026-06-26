@@ -27,15 +27,15 @@ ml/*.jsonl
 
 # Trained Models
 
-ml/*.pkl
-ml/*.joblib
-ml/*.onnx
-ml/*.h5
-ml/*.hdf5
-ml/*.pt
-ml/*.pth
-ml/*.ckpt
-ml/*.keras
+# ml/*.pkl
+# ml/*.joblib
+# ml/*.onnx
+# ml/*.h5
+# ml/*.hdf5
+# ml/*.pt
+# ml/*.pth
+# ml/*.ckpt
+# ml/*.keras
 
 # Experiment Artifacts
 
